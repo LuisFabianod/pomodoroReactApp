@@ -1,0 +1,43 @@
+dialog{
+  margin: auto;
+  border: 1px solid rgba(0, 0, 0, 0.575);
+  border-radius: 10px;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.438);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid rgba(0, 0, 0, 0.171);
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  img{
+    width: 15px;
+    height: 15px;
+
+  }
+  img:hover{
+    cursor: pointer;
+  }
+
+  header > button{
+    background-color: #df7373;
+    border: none;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.808);
+    padding: 10px;
+  }
+
+  header > button:hover{
+    background-color: #ec8f8f;
+    cursor: pointer;
+  }
