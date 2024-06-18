@@ -1,7 +1,7 @@
 import './styles.css'
 import { Button } from '../Button'
 import { openModal } from '../Dialog'
-import { ModalContext } from '../../Context/modalContext'
+import { ModalContext } from '../../Context/ModalContext/modalContext'
 import { useContext } from 'react'
 
 

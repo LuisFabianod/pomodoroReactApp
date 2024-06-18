@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { ModalContext } from '../../Context/modalContext'
+import { ModalContext } from '../../Context/ModalContext/modalContext'
 import './styles.css'
 import myImage from '../../icons/x-mark.png';
 
