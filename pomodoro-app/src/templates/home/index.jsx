@@ -13,7 +13,7 @@ export const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [counter, setCounter] = useState(3000);
     const [ isCounterActive, setIsCounterActive ] = useState(false);
-    const [ pomodoroState, setPomodoroState ] = useState('pomodoro')
+    const [ pomodoroState, setPomodoroState ] = useState('Pomodoro')
 
     return(
         <>

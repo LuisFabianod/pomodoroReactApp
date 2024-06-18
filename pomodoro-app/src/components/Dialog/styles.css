@@ -29,15 +29,15 @@ table {
     cursor: pointer;
   }
 
-  header > button{
-    background-color: #df7373;
+   button{
     border: none;
     border-radius: 5px;
     color: rgba(255, 255, 255, 0.808);
     padding: 10px;
+    transition: background-color .5s;
   }
 
-  header > button:hover{
-    background-color: #ec8f8f;
+  button:hover{
     cursor: pointer;
+    
   }

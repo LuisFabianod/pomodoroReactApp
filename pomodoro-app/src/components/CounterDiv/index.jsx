@@ -1,13 +1,14 @@
 import './styles.css'
 import { Button } from '../Button'
 import { Counter } from '../Counter'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CounterContext } from '../../Context/CounterContext/counterContext'
 
 
 export const CounterDiv = () => {
 
     const { counter, setCounter, isCounterActive, setIsCounterActive, pomodoroState, setPomodoroState} = useContext(CounterContext);
+    
 
     const buttonText = isCounterActive ? 'Pause' : 'Start'; 
 
@@ -43,19 +44,31 @@ export const CounterDiv = () => {
       }, [handleStartCounter])
 
       useEffect(() => {
-        const body = document.querySelector('.body')
+        setIsCounterActive(false);
+
+        const body = document.querySelector('.body');
+        const button = document.querySelectorAll('.button');
+        const counterDiv = document.querySelector('.wrapper');
+
         switch(pomodoroState){
-            case 'pomodoro':
+            case 'Pomodoro':
                 setCounter(3000);
                 body.style.background = '#BA4949';
+                button.forEach(el => el.style.background = '#df7373')
+                counterDiv.style.background = '#c96161';
                 break;
-            case 'short-brake':
+            case 'Short-brake':
                 setCounter(600);
-                body.style.background = '#38858A';
+                body.style.background = '#397097';
+                button.forEach(el => el.style.background = '#618dac')
+                counterDiv.style.background = '#4d7fa2';
+                
                 break;
-            case 'long-brake':
+            case 'Long-brake':
                 setCounter(900);
-                body.style.background = 'yellow';
+                body.style.background = '#9B8238';
+                button.forEach(el => el.style.background = '#af9b60')
+                counterDiv.style.background = '#A58F4C';
                 break;
             
         }
@@ -66,10 +79,11 @@ export const CounterDiv = () => {
     return(
         <div className="wrapper">
             <nav>
-                <Button handleFunction={() => {setPomodoroState('pomodoro')}}>Pomodoro</Button>
-                <Button handleFunction={() => {setPomodoroState('short-brake')}}>Short Brake</Button>
-                <Button handleFunction={() => {setPomodoroState('long-brake')}}>Long Break</Button>
+                <Button handleFunction={() => {setPomodoroState('Pomodoro')}}>Pomodoro</Button>
+                <Button handleFunction={() => {setPomodoroState('Short-brake')}}>Short Brake</Button>
+                <Button handleFunction={() => {setPomodoroState('Long-brake')}}>Long Break</Button>
             </nav>
+            <h7>{pomodoroState}</h7>
             <Counter></Counter>
             <Button handleFunction={handleStartCounter}>{buttonText}</Button>
         </div>

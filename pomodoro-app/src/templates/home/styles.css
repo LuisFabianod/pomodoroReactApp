@@ -4,6 +4,8 @@
 
 body{
     background-color: #BA4949;
+    transition: background-color .5s;
 }
+
 
 

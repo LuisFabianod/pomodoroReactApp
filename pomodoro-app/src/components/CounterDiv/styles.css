@@ -5,12 +5,14 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    height: 400px;
+    margin-top: 100px;
+    height: 500px;
     width: 400px;
     background-color: #c96161;
-    gap: 50px;
+    gap: 30px;
     color: white;
     border-radius: 10px;
+    transition: background-color .5s;
 }
 nav{
     display: flex;
@@ -18,5 +20,5 @@ nav{
 }
 
 .wrapper > h1{
-    font-size: 4em;
+    font-size: 6em;
 }
