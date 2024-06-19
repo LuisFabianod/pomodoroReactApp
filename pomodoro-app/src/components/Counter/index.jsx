@@ -3,7 +3,7 @@ import { CounterContext } from "../../Context/CounterContext/counterContext"
 
 export const Counter = () => {
 
-    const { counter, setCounter } = useContext(CounterContext)
+    const { counter } = useContext(CounterContext)
 
     const formatCounter = () => {
         const minutes = Math.floor(counter / 60);
@@ -11,7 +11,6 @@ export const Counter = () => {
         return `${( "0" + minutes).slice(-2)}:${( "0" + seconds).slice(-2)}`
     }   
 
-  
     return (
         <h1>{formatCounter()}</h1>
     )

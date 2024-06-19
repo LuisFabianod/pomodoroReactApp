@@ -3,26 +3,14 @@ import { ModalContext } from '../../Context/ModalContext/modalContext'
 import './styles.css'
 import myImage from '../../icons/x-mark.png';
 
-export const openModal = (setIsOpen) => {
-    setIsOpen(true);
-}
-
-const closeModal = ( setIsOpen) => {
-    setIsOpen(false);
-}
-
-
 export const Dialog = () => {
     const {isOpen, setIsOpen } = useContext(ModalContext);
 
-    if(isOpen)
-
     return (
-
         <dialog open={isOpen} className='dialog'>
             <header style={{ justifyContent: 'space-around'}}>
                 <h3>SHORTCUTS</h3>
-                <img src={myImage} alt="close-button" onClick={() => closeModal(setIsOpen)}></img>
+                <img src={myImage} alt="close-button" onClick={() => setIsOpen(false)}></img>
             </header>
             <hr/>
 

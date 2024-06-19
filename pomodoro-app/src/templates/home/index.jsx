@@ -6,14 +6,12 @@ import { CounterDiv } from "../../components/CounterDiv";
 import { ModalContext } from "../../Context/ModalContext/modalContext";
 import { CounterContext } from "../../Context/CounterContext/counterContext";
 
-
-
 export const Home = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [counter, setCounter] = useState(3000);
     const [ isCounterActive, setIsCounterActive ] = useState(false);
-    const [ pomodoroState, setPomodoroState ] = useState('Pomodoro')
+    const [ pomodoroState, setPomodoroState ] = useState('Pomodoro');
 
     return(
         <>
