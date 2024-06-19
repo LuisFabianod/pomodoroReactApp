@@ -2,7 +2,7 @@ import './styles.css';
 import { Button } from '../Button';
 import { Counter } from '../Counter';
 import { useContext, useEffect, useCallback } from 'react';
-import { CounterContext } from '../../Context/CounterContext/counterContext';
+import { CounterContext } from '../../Context/CounterContext';
 
 const playAudio = (audioPath) => {
     const audio = new Audio(require(audioPath));
@@ -39,7 +39,7 @@ const useKeyPressEffect = (handleStartCounter) => {
 const usePomodoroStateEffect = (pomodoroState, setCounter, setIsCounterActive) => {
     useEffect(() => {
         setIsCounterActive(false);
-        const body = document.querySelector('.body');
+        const body = document.querySelector('body');
         const buttons = document.querySelectorAll('.button');
         const counterDiv = document.querySelector('.wrapper');
         

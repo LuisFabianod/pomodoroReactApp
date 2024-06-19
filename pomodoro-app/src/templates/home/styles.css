@@ -7,5 +7,7 @@ body{
     transition: background-color .5s;
 }
 
-
+body.modal-open {
+    pointer-events: none;
+  }
 
