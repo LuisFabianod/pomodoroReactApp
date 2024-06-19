@@ -23,8 +23,8 @@ div.input{
 
 
 .pomodoro-minutes, .pomodoro-seconds, 
-.short-breake-minutes, .short-breake-seconds,
-.long-breake-minutes, .long-breake-seconds{
+.short-break-minutes, .short-break-seconds,
+.long-break-minutes, .long-break-seconds{
     height: 40px;
     width: 30px;
     border-radius: 5px;

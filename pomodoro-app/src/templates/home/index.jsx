@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import './styles.css'
 import { Header } from '../../components/Header';
-import { ShortcutsModal } from '../../components/shortcutsModal';
-import { SettingsModal } from '../../components/settingsModal';
+import { ShortcutsModal } from '../../components/ShortcutsModal';
+import { SettingsModal } from "../../components/settingsModal";
 import { CounterDiv } from "../../components/CounterDiv";
 import { ModalContext } from "../../Context/ModalContext";
 import { CounterContext } from "../../Context/CounterContext";
+import { SettingsContext } from "../../Context/SettingsContext";
 
 export const Home = () => {
 
@@ -14,18 +15,24 @@ export const Home = () => {
     const [counter, setCounter] = useState(3000);
     const [ isCounterActive, setIsCounterActive ] = useState(false);
     const [ pomodoroState, setPomodoroState ] = useState('Pomodoro');
+    const [ settingsDidModified, setSettingsDidModified ] = useState(false)
 
     return(
         <>
+        <SettingsContext.Provider value={{ settingsDidModified, setSettingsDidModified }}>
         <ModalContext.Provider value={{isSettingsOpen, setIsSettingsOpen, isShortcutsOpen, setIsShortcutsOpen}}>
         <Header/>
         <SettingsModal/>
         <ShortcutsModal/>
-        </ModalContext.Provider>
+        
 
         <CounterContext.Provider value={{counter, setCounter, isCounterActive, setIsCounterActive, pomodoroState, setPomodoroState}}>
         <CounterDiv/>
+       
         </CounterContext.Provider>
+        </ModalContext.Provider>
+        </SettingsContext.Provider>
+        
         </>
 
     )
