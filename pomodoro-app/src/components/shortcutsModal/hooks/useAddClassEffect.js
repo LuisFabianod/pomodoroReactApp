@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 export const useAddClassEffect = (isOpen) => {
     useEffect(() => {
         const body = document.querySelector('body');
