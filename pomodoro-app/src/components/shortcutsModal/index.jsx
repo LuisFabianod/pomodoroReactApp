@@ -1,20 +1,9 @@
-import { useContext, useEffect } from 'react'
-import { ModalContext } from "../../Context/ModalContext";
 import './styles.css'
+import { useContext } from 'react'
+import { ModalContext } from "../../Context/ModalContext";
 import myImage from '../../icons/x-mark.png';
 
-const useAddClassEffect = (isOpen) => {
-    useEffect(() => {
-        const body = document.querySelector('body');
-        if(isOpen){ 
-            body.classList.add('modal-open');
-        }else{
-            body.classList.remove('modal-open');
-        }
-
-    }, [isOpen])
-}
-
+import { useAddClassEffect } from './hooks/useAddClassEffect';
 
 export const ShortcutsModal = () => {
     const {isShortcutsOpen, setIsShortcutsOpen } = useContext(ModalContext);
