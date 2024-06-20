@@ -13,12 +13,12 @@ const playAudio = () => {
     }
 };
 
-const formatInputPomodoro = () => {
-    const pomodoroMinutes = document.querySelector('.pomodoro-minutes');
-    const pomodoroSeconds = document.querySelector('.pomodoro-seconds');
+const formatInput = (inputMinutesClass, inputSecondsClass, input) => {
+    const inputMinutes = document.querySelector(`.${inputMinutesClass}`);
+    const inputSeconds = document.querySelector(`.${inputSecondsClass}`);
 
-    const minutes = parseInt(pomodoroMinutes.value) || 0;
-    const seconds = parseInt(pomodoroSeconds.value) || 0;
+    const minutes = parseInt(inputMinutes.value) || 0;
+    const seconds = parseInt(inputSeconds.value) || 0;
 
     if (minutes <= 0 && seconds <= 0) {
         const newCounter = 3000;
@@ -27,49 +27,12 @@ const formatInputPomodoro = () => {
 
     const newCounter = minutes * 60 + seconds;
 
-    localStorage.setItem("pomodoroCounter", newCounter);
+    localStorage.setItem(`${input}Counter`, newCounter);
 
     return newCounter;
 
 }
 
-const formatInputShortBreak = () => {
-    const shortBreakMinutes = document.querySelector('.short-break-minutes');
-    const shortBreakSeconds = document.querySelector('.short-break-seconds');
-
-    const minutes = parseInt(shortBreakMinutes.value) || 0;
-    const seconds = parseInt(shortBreakSeconds.value) || 0;
-
-    if (minutes <= 0 && seconds <= 0)  {
-        const newCounter = 600;
-        return newCounter;
-    }
-
-    const newCounter = minutes * 60 + seconds;
-
-    localStorage.setItem("shortBreakCounter", newCounter);
-
-    return newCounter;
-}
-
-const formatInputLongBreak = () => {
-    const longBreakMinutes = document.querySelector('.long-break-minutes');
-    const longBreakSeconds = document.querySelector('.long-break-seconds');
-
-    const minutes = parseInt(longBreakMinutes.value) || 0;
-    const seconds = parseInt(longBreakSeconds.value) || 0;
-
-    if (minutes <= 0 && seconds <= 0)  {
-        const newCounter = 900;
-        return newCounter;
-    }
-
-    const newCounter = minutes * 60 + seconds;
-
-    localStorage.setItem("longBreakCounter", newCounter);
-
-    return newCounter;
-}
 
 const useCounterEffect = (isCounterActive, counter, setCounter, setIsCounterActive) => {
     useEffect(() => {
@@ -112,9 +75,9 @@ const usePomodoroStateEffect = (pomodoroState, setCounter, setIsCounterActive, s
         };
 
         const userSettingsStyles = {
-            'Pomodoro': { counter: formatInputPomodoro(), body: '#BA4949', button: '#df7373', counterDiv: '#c96161' },
-            'Short-breake': { counter: formatInputShortBreak(), body: '#397097', button: '#618dac', counterDiv: '#4d7fa2' },
-            'Long-breake': { counter: formatInputLongBreak(), body: '#9B8238', button: '#af9b60', counterDiv: '#A58F4C' },
+            'Pomodoro': { counter: formatInput('pomodoro-minutes', 'pomodoro-seconds', 'pomodoro'), body: '#BA4949', button: '#df7373', counterDiv: '#c96161' },
+            'Short-breake': { counter: formatInput('short-break-minutes', 'short-break-seconds', 'shortBreak'), body: '#397097', button: '#618dac', counterDiv: '#4d7fa2' },
+            'Long-breake': { counter: formatInput('long-break-minutes', 'long-break-seconds', 'longBreak'), body: '#9B8238', button: '#af9b60', counterDiv: '#A58F4C' },
         };
 
 
