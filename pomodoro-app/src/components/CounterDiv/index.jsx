@@ -27,6 +27,8 @@ const formatInputPomodoro = () => {
 
     const newCounter = minutes * 60 + seconds;
 
+    localStorage.setItem("pomodoroCounter", newCounter);
+
     return newCounter;
 
 }
@@ -38,12 +40,14 @@ const formatInputShortBreak = () => {
     const minutes = parseInt(shortBreakMinutes.value) || 0;
     const seconds = parseInt(shortBreakSeconds.value) || 0;
 
-    if (minutes <= 0 && seconds <= 0) {
+    if (minutes <= 0 && seconds <= 0)  {
         const newCounter = 600;
         return newCounter;
     }
 
     const newCounter = minutes * 60 + seconds;
+
+    localStorage.setItem("shortBreakCounter", newCounter);
 
     return newCounter;
 }
@@ -55,12 +59,14 @@ const formatInputLongBreak = () => {
     const minutes = parseInt(longBreakMinutes.value) || 0;
     const seconds = parseInt(longBreakSeconds.value) || 0;
 
-    if (minutes <= 0 && seconds <= 0) {
+    if (minutes <= 0 && seconds <= 0)  {
         const newCounter = 900;
         return newCounter;
     }
 
     const newCounter = minutes * 60 + seconds;
+
+    localStorage.setItem("longBreakCounter", newCounter);
 
     return newCounter;
 }
@@ -91,6 +97,7 @@ const useKeyPressEffect = (handleStartCounter) => {
 };
 
 const usePomodoroStateEffect = (pomodoroState, setCounter, setIsCounterActive, settingsDidModified, isSettingsOpen) => {
+    console.log(localStorage)
     useEffect(() => {
         setIsCounterActive(false);
         const body = document.querySelector('body');
@@ -99,9 +106,9 @@ const usePomodoroStateEffect = (pomodoroState, setCounter, setIsCounterActive, s
 
         
         const initialStyles = {
-            'Pomodoro': { counter: 3000, body: '#BA4949', button: '#df7373', counterDiv: '#c96161' },
-            'Short-breake': { counter: 600, body: '#397097', button: '#618dac', counterDiv: '#4d7fa2' },
-            'Long-breake': { counter: 900, body: '#9B8238', button: '#af9b60', counterDiv: '#A58F4C' },
+            'Pomodoro': { counter: parseInt(localStorage.getItem("pomodoroCounter")) || 3000, body: '#BA4949', button: '#df7373', counterDiv: '#c96161' },
+            'Short-breake': { counter: parseInt(localStorage.getItem("shortBreakCounter")) || 600, body: '#397097', button: '#618dac', counterDiv: '#4d7fa2' },
+            'Long-breake': { counter: parseInt(localStorage.getItem("longBreakCounter")) || 900, body: '#9B8238', button: '#af9b60', counterDiv: '#A58F4C' },
         };
 
         const userSettingsStyles = {
@@ -109,6 +116,7 @@ const usePomodoroStateEffect = (pomodoroState, setCounter, setIsCounterActive, s
             'Short-breake': { counter: formatInputShortBreak(), body: '#397097', button: '#618dac', counterDiv: '#4d7fa2' },
             'Long-breake': { counter: formatInputLongBreak(), body: '#9B8238', button: '#af9b60', counterDiv: '#A58F4C' },
         };
+
 
         const styles = settingsDidModified ? userSettingsStyles : initialStyles;
 
