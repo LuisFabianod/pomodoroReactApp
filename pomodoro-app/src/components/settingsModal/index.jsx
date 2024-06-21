@@ -11,11 +11,10 @@ import { submitCounterSettings } from './utils/submitCounterSettings';
 
 export const SettingsModal = () => {
     const { isSettingsOpen, setIsSettingsOpen } = useContext(ModalContext);
-    const settingsContext = useContext(SettingsContext);
+    const { setSettingsDidModified } = useContext(SettingsContext);
 
     useAddClassEffect(isSettingsOpen);
 
-    const { setSettingsDidModified } = settingsContext;
 
     return (
         <dialog open={isSettingsOpen} className='dialog' style={{ minWidth: '250px' }}>

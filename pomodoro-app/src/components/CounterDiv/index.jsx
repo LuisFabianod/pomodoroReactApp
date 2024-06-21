@@ -17,11 +17,11 @@ export const CounterDiv = () => {
     const buttonText = isCounterActive ? 'Pause' : 'Start';
 
     const { settingsDidModified } = useContext(SettingsContext);
-    const { isSettingsOpen } = useContext(ModalContext)
+    const { isSettingsOpen } = useContext(ModalContext);
     
 
     const handleStartCounter = useCallback(() => {
-        setIsCounterActive(prev => !prev);
+        setIsCounterActive(!isCounterActive);
     }, [setIsCounterActive]);
 
     useCounterEffect(isCounterActive, counter, setCounter, setIsCounterActive);

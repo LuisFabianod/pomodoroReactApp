@@ -28,7 +28,6 @@ export const Home = () => {
 
         <CounterContext.Provider value={{counter, setCounter, isCounterActive, setIsCounterActive, pomodoroState, setPomodoroState}}>
         <CounterDiv/>
-       
         </CounterContext.Provider>
         </ModalContext.Provider>
         </SettingsContext.Provider>
