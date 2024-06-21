@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './styles.css'
 import { Header } from '../../components/Header';
-import { ShortcutsModal } from '../../components/ShortcutsModal';
+import { ShortcutsModal } from '../../components/shortcutsModal';
 import { SettingsModal } from "../../components/settingsModal";
 import { CounterDiv } from "../../components/CounterDiv";
 import { ModalContext } from "../../Context/ModalContext";
