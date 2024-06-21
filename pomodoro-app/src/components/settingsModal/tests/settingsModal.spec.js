@@ -10,12 +10,12 @@ const mockModalContext = {
 };
 
 const mockSettingsContext ={
-    settingsDidModified: false,
+    setSettingsDidModified: jest.fn(),
 };
 
 describe('<Header />', () => {
 
-    const { settingsDidModified } = mockSettingsContext;
+    const { setSettingsDidModified } = mockSettingsContext;
     const { setIsSettingsOpen } = mockModalContext;
 
     it(' should set isSettingsOpen state to true on settingsButton click', () => {
@@ -37,9 +37,8 @@ describe('<Header />', () => {
 
 
     it(' should render settingsModal component', () => {
-        
         render(
-        <SettingsContext.Provider value={{settingsDidModified}}>
+        <SettingsContext.Provider value={{setSettingsDidModified}}>
         <ModalContext.Provider value={{setIsSettingsOpen}}>
             <SettingsModal />
         </ModalContext.Provider>
@@ -48,5 +47,27 @@ describe('<Header />', () => {
 
         const settingsModal = document.querySelector('dialog')
         expect(settingsModal).toBeInTheDocument();
+
+        const submitButton = document.querySelector('.button');
+        expect(submitButton).toBeInTheDocument();
+    });
+
+    it(' should call setCounter on submitButton click', () => {
+        render(
+        <SettingsContext.Provider value={{setSettingsDidModified}}>
+        <ModalContext.Provider value={{setIsSettingsOpen}}>
+            <SettingsModal />
+        </ModalContext.Provider>
+        </SettingsContext.Provider >
+    )
+
+    const submitButton = document.querySelector('.button');
+
+    act(() => {
+        fireEvent.click(submitButton);
+    });
+
+    expect(setSettingsDidModified).toHaveBeenCalledWith(true);
+
     });
 });
