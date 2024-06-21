@@ -22,7 +22,7 @@ export const CounterDiv = () => {
 
     const handleStartCounter = useCallback(() => {
         setIsCounterActive(!isCounterActive);
-    }, [setIsCounterActive]);
+    }, [ setIsCounterActive ,isCounterActive]);
 
     useCounterEffect(isCounterActive, counter, setCounter, setIsCounterActive);
     useKeyPressEffect(handleStartCounter);

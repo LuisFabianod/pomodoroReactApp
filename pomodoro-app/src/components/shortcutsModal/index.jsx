@@ -1,7 +1,6 @@
 import './styles.css'
 import { useContext } from 'react'
 import { ModalContext } from "../../Context/ModalContext";
-import { Button } from '../Button';
 import myImage from '../../icons/x-mark.png';
 
 import { useAddClassEffect } from './hooks/useAddClassEffect';
