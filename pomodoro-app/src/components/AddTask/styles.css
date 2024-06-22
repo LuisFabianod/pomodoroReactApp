@@ -1,0 +1,14 @@
+.add-task-wrapper{
+    display: flex;
+    justify-content: center;
+    width: 400px;
+}
+
+#add-task-button{
+    width: 90%;
+    margin-top: 50px;
+    padding: 13px;
+    border: 2px rgba(211, 211, 211, 0.555) dashed;
+    color: rgb(231, 231, 231);
+    font-size: 1.1em;
+}

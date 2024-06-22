@@ -3,6 +3,9 @@
 }
 
 body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #BA4949;
     transition: background-color .5s;
 }

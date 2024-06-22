@@ -1,0 +1,22 @@
+#create-task-dialog header{
+    justify-content: end;
+}
+
+#create-task-dialog h3{
+    display: none;
+}
+
+#create-task-dialog img{
+    margin-bottom: 10px;
+}
+
+#create-task-form{
+    gap: 20px;
+}
+#create-task-input{
+    width: 90%;
+    height: 40px;
+    font-size: 1.7em;
+    border: none;
+    outline: none;
+}

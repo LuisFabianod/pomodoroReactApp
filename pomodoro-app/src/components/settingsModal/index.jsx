@@ -18,12 +18,12 @@ export const SettingsModal = () => {
 
     return (
         <dialog open={isSettingsOpen} className='dialog' style={{ minWidth: '250px' }}>
-            <header style={{ justifyContent: 'space-around'}}>
+            <header>
                 <h3>SETTINGS</h3>
                 <img src={closeMenuIcon} alt="close-button" onClick={() => setIsSettingsOpen(false)}></img>
             </header>
             <hr/>
-            <form action="GET">
+            <form>
                 <Input labelText={'Pomodoro duration: '} classNameMinutes={'pomodoro-minutes'} classNameSeconds={'pomodoro-seconds'}></Input>
                 <Input labelText={'Short-break duration:'} classNameMinutes={'short-break-minutes'} classNameSeconds={'short-break-seconds'}></Input>
                 <Input labelText={'Long-break  duration:'} classNameMinutes={'long-break-minutes'} classNameSeconds={'long-break-seconds'}></Input>

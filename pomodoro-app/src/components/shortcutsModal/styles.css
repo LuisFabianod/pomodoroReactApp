@@ -6,6 +6,10 @@ dialog{
   pointer-events: auto;
 }
 
+dialog > header{
+  display: flex;
+  justify-content: space-around;
+}
 
 table {
     width: 100%;
@@ -30,7 +34,7 @@ table {
     cursor: pointer;
   }
 
-   button{
+   .button{
     border: none;
     border-radius: 5px;
     color: rgba(255, 255, 255, 0.808);

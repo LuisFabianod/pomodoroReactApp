@@ -12,7 +12,7 @@ export const ShortcutsModal = () => {
         
     return (
         <dialog open={isShortcutsOpen} className='dialog'>
-            <header style={{ justifyContent: 'space-around'}}>
+            <header>
                 <h3>SHORTCUTS</h3>
                 <img src={myImage} alt="close-button" onClick={() => setIsShortcutsOpen(false)}></img>
             </header>
