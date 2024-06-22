@@ -12,8 +12,8 @@ export const Task = () => {
                     <p className="task-title">{task}</p>
                 </div>
                 <div className="task-options-wrapper">
-                    <img src="" alt="erase-task-button" />
-                    <img src="" alt="edit-task-button" />
+                    <img src="" alt="erase-task-button" className="erase-task-button"/>
+                    <img src="" alt="edit-task-button"  className="edit-task-button"/>
                 </div>
             </div>
         ))

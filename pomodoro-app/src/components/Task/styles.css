@@ -1,0 +1,6 @@
+.task-wrapper{
+    width: 350px;
+    height: 200px;
+    display: flex;
+    background-color: white ;
+}

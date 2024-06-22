@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 
-export const useKeyPressEffect = (handleStartCounter, key) => {
+export const useKeyPressEffect = (setIsCreateTaskOpen, key, state) => {
     useEffect(() => {
         const handleKeyPress = (event) => {
-            if (event.key === ' ') {
-                handleStartCounter();
+            if (event.key === key) {
+                setIsCreateTaskOpen(state);
             }
         };
         document.addEventListener('keypress', handleKeyPress);
         return () => document.removeEventListener('keypress', handleKeyPress);
-    }, [handleStartCounter]);
+    }, [setIsCreateTaskOpen]);
 };

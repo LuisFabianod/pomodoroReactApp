@@ -4,22 +4,20 @@ import { ModalContext } from '../../Context/ModalContext';
 import closeMenuIcon from '../../icons/x-mark.png'
 import { Button } from '../Button';
 import { useAddClassEffect } from './hooks/useAddClassEffect';
+import { useKeyPressEffect } from './hooks/useKeyPressEffect';
 import { TasksContext } from '../../Context/TasksContext';
+import { getTaskTitle } from './utils/getTaskTitle';
+
 
 export const CreateTaskModal = () => {
+
     const {  tasksArray ,setTasksArray } = useContext(TasksContext);
-
-    const getTaskTitle = (event) => {
-        event.preventDefault();
-        const taskInput = document.querySelector('#create-task-input');
-        const taskTitle = taskInput.value;
-        setTasksArray([...tasksArray, taskTitle ]);
-    };
-
     const { isCreateTaskOpen, setIsCreateTaskOpen } = useContext(ModalContext);
 
     useAddClassEffect(isCreateTaskOpen);
+    useKeyPressEffect(setIsCreateTaskOpen, 'n', true);
 
+    
     return(
         <dialog open={isCreateTaskOpen} id='create-task-dialog' className='dialog' style={{ minWidth: '400px', maxHeight: '300px'}}>
             <header>
@@ -28,7 +26,7 @@ export const CreateTaskModal = () => {
             </header>
             <form id='create-task-form'>
                 <input type="text" id='create-task-input' placeholder='Write your task here' />
-                <Button handleFunction={(event) => getTaskTitle(event)}>Add task</Button>
+                <Button handleFunction={(event) => getTaskTitle(event, tasksArray, setTasksArray, setIsCreateTaskOpen)}>Add task</Button>
             </form>
         </dialog>
     )

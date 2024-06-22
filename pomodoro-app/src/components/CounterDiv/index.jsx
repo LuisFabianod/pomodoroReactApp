@@ -25,7 +25,7 @@ export const CounterDiv = () => {
     }, [ setIsCounterActive ,isCounterActive]);
 
     useCounterEffect(isCounterActive, counter, setCounter, setIsCounterActive);
-    useKeyPressEffect(handleStartCounter);
+    useKeyPressEffect(handleStartCounter, ' ');
     usePomodoroStateEffect(pomodoroState, setCounter, setIsCounterActive, settingsDidModified, isSettingsOpen);
 
     return (
