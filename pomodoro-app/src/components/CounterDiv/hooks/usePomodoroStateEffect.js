@@ -16,9 +16,9 @@ export const usePomodoroStateEffect = (pomodoroState, setCounter, setIsCounterAc
         };
 
         const userSettingsStyles = {
-            'Pomodoro': { counter: formatInput('pomodoro-minutes', 'pomodoro-seconds', 'pomodoro'), body: '#BA4949', button: '#df7373', counterDiv: '#c96161' },
-            'Short-break': { counter: formatInput('short-break-minutes', 'short-break-seconds', 'shortBreak'), body: '#397097', button: '#618dac', counterDiv: '#4d7fa2' },
-            'Long-break': { counter: formatInput('long-break-minutes', 'long-break-seconds', 'longBreak'), body: '#9B8238', button: '#af9b60', counterDiv: '#A58F4C' },
+            'Pomodoro': { counter: formatInput('pomodoro-minutes', 'pomodoro-seconds', 'pomodoro', 3000), body: '#BA4949', button: '#df7373', counterDiv: '#c96161' },
+            'Short-break': { counter: formatInput('short-break-minutes', 'short-break-seconds', 'shortBreak', 600), body: '#397097', button: '#618dac', counterDiv: '#4d7fa2' },
+            'Long-break': { counter: formatInput('long-break-minutes', 'long-break-seconds', 'longBreak', 900), body: '#9B8238', button: '#af9b60', counterDiv: '#A58F4C' },
         };
 
 

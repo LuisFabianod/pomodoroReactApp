@@ -9,5 +9,5 @@ export const useKeyPressEffect = (setIsCreateTaskOpen, key, state) => {
         };
         document.addEventListener('keypress', handleKeyPress);
         return () => document.removeEventListener('keypress', handleKeyPress);
-    }, [setIsCreateTaskOpen]);
+    }, [setIsCreateTaskOpen, key, state]);
 };
