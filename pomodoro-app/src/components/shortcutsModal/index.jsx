@@ -1,7 +1,7 @@
 import './styles.css'
 import { useContext } from 'react'
 import { ModalContext } from "../../Context/ModalContext";
-import myImage from '../../icons/x-mark.png';
+import closeIcon from '../../icons/x-mark.png';
 
 import { useAddClassEffect } from './hooks/useAddClassEffect';
 
@@ -14,7 +14,7 @@ export const ShortcutsModal = () => {
         <dialog open={isShortcutsOpen} className='dialog'>
             <header>
                 <h3>SHORTCUTS</h3>
-                <img src={myImage} alt="close-button" onClick={() => setIsShortcutsOpen(false)}></img>
+                <img src={closeIcon} alt="close-button" onClick={() => setIsShortcutsOpen(false)}></img>
             </header>
             <hr/>
 

@@ -1,4 +1,4 @@
-export const getTaskTitle = (event, tasksArray, setTasksArray, setIsCreateTaskOpen) => {
+export const createTask = (event, tasksArray, setTasksArray, setIsCreateTaskOpen) => {
 
     event.preventDefault();
     const taskInput = document.querySelector('#create-task-input');

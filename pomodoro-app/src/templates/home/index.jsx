@@ -23,6 +23,8 @@ export const Home = () => {
     const [ isCounterActive, setIsCounterActive ] = useState(false);
     const [ pomodoroState, setPomodoroState ] = useState('Pomodoro');
     const [ tasksArray, setTasksArray ] = useState([]);
+    const [ editTaskClicked, setEditTaskClicked ] = useState(false);
+    const [taskIndex, setTaskIndex ] = useState(0);
     
 
     return(
@@ -35,7 +37,7 @@ export const Home = () => {
 
         <CounterContext.Provider value={{counter, setCounter, isCounterActive, setIsCounterActive, pomodoroState, setPomodoroState}}>
         <CounterDiv/>
-        <TasksContext.Provider value={{tasksArray, setTasksArray}}>
+        <TasksContext.Provider value={{tasksArray, setTasksArray,editTaskClicked, setEditTaskClicked, taskIndex, setTaskIndex}}>
         <CreateTaskModal/>
         <AddTask />
         <Task />
