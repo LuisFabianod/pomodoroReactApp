@@ -1,9 +1,9 @@
 import './styles.css';
 import { useContext } from 'react';
 import { ModalContext } from '../../Context/ModalContext';
+import { TasksContext } from '../../Context/TasksContext';
 import closeMenuIcon from '../../icons/x-mark.png'
 import { Button } from '../Button';
-import { TasksContext } from '../../Context/TasksContext';
 
 import { useAddClassEffect } from './hooks/useAddClassEffect';
 import { useKeyPressEffect } from './hooks/useKeyPressEffect';
