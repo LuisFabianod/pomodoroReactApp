@@ -2,8 +2,8 @@ import './styles.css';
 import { useContext } from 'react';
 import { ModalContext } from '../../Context/ModalContext';
 import { TasksContext } from '../../Context/TasksContext';
-import closeMenuIcon from '../../icons/x-mark.png'
 import { Button } from '../Button';
+import closeMenuIcon from '../../icons/x-mark.png'
 
 import { useAddClassEffect } from './hooks/useAddClassEffect';
 import { useKeyPressEffect } from './hooks/useKeyPressEffect';
@@ -11,7 +11,7 @@ import { createOrEditTask } from './utils/createOrEditTask';
 
 export const CreateTaskModal = () => {
 
-    const {  tasksArray ,setTasksArray, editTaskClicked, setEditTaskClicked, taskIndex } = useContext(TasksContext);
+    const {  tasksArray, setTasksArray,editTaskClicked, setEditTaskClicked, taskIndex, taskTitle, setTaskTitle } = useContext(TasksContext);
     const { isCreateTaskOpen, setIsCreateTaskOpen } = useContext(ModalContext);
 
     useAddClassEffect(isCreateTaskOpen);
@@ -25,7 +25,7 @@ export const CreateTaskModal = () => {
             </header>
             <form id='create-task-form'>
                 <input type="text" id='create-task-input' placeholder='Write your task here'/>
-                <Button handleFunction={(event) => createOrEditTask(event, editTaskClicked, setEditTaskClicked, tasksArray ,setTasksArray, setIsCreateTaskOpen, taskIndex)}>Add task</Button>
+                <Button handleFunction={(event) => createOrEditTask(event, editTaskClicked, setEditTaskClicked, tasksArray ,setTasksArray, setIsCreateTaskOpen, taskIndex, taskTitle, setTaskTitle )}>Add task</Button>
             </form>
         </dialog>
     )

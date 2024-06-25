@@ -1,7 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Counter } from '..';
 import { CounterContext } from '../../../Context/CounterContext';
+import { Counter } from '..';
+
 
 const mockContext = {
   counter: 3000,

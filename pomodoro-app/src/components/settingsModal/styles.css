@@ -3,30 +3,33 @@ form{
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    min-width: 200px;
 }
 
+.warning{
+    color: red;
+    max-width: 200px;
+}
 
 div.input-wrapper{
     display: flex;
     flex-direction: column;
-    gap: 5px;
     margin-bottom: 10px;
+    gap: 5px;
 }
 
 div.input{
     display: flex;
     align-items: center;
-    gap: 10px;
     margin-left: 5px;
+    gap: 10px;
 }
-
-
 
 .pomodoro-minutes, .pomodoro-seconds, 
 .short-break-minutes, .short-break-seconds,
 .long-break-minutes, .long-break-seconds{
+    width: 40px;
     height: 40px;
-    width: 30px;
     border-radius: 5px;
     background-color: rgb(219, 218, 218);
     color: rgb(39, 39, 39);

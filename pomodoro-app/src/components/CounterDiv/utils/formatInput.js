@@ -6,15 +6,13 @@ export const formatInput = (inputMinutesClass, inputSecondsClass, input, default
     const seconds = parseInt(inputSeconds.value) || 0;
 
     if (minutes <= 0 && seconds <= 0) {
-        const newCounter = defaultValue;
+        const newCounter = localStorage.getItem(`${input}Counter`) || defaultValue;
         return newCounter;
     }
 
     const newCounter = minutes * 60 + seconds;
 
     localStorage.setItem(`${input}Counter`, newCounter);
-    console.log(localStorage)
 
     return newCounter;
-
 };

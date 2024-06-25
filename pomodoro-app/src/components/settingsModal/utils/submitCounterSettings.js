@@ -2,5 +2,4 @@ export const submitCounterSettings = (event, setSettingsDidModified, setIsSettin
     event.preventDefault();
     setSettingsDidModified(true);
     setIsSettingsOpen(false);
-
 };

@@ -1,17 +1,20 @@
 import './styles.css'
 import { useContext} from "react";
+import { ModalContext } from '../../Context/ModalContext';
 import { TasksContext } from "../../Context/TasksContext";
 import closeIcon from '../../icons/x-mark.png';
 import editIcon from '../../icons/edit.png';
 
 import { editTask } from './utils/editTask';
 import { removeTask } from './utils/removeTask'; 
-import { ModalContext } from '../../Context/ModalContext';
+import { useCheckLocalStorageEffect } from './hooks/useCheckLocalStorageEffect';
 
 export const Task = () => {
-    const { tasksArray, setTasksArray, setEditTaskClicked, setTaskIndex } = useContext(TasksContext);
+    const { tasksArray, setTasksArray, setEditTaskClicked, setTaskIndex, setTaskTitle } = useContext(TasksContext);
     const { setIsCreateTaskOpen } = useContext(ModalContext);
-    
+
+    useCheckLocalStorageEffect( setTasksArray);
+
     const taskInput = document.querySelector('#create-task-input');   
     if(taskInput) taskInput.value = '';
 
@@ -23,8 +26,8 @@ export const Task = () => {
                     <p className="task-title">{task}</p>
                 </div>
                 <div className="task-options-wrapper">
-                    <img src={editIcon} alt="edit-task-button"  className="edit-task-button" onClick={() => editTask(index, setEditTaskClicked, setTaskIndex, setIsCreateTaskOpen)}/>
-                    <img src={closeIcon} alt="erase-task-button" className="erase-task-button" onClick={() => removeTask(index, tasksArray, setTasksArray)}/>
+                    <img src={editIcon} alt="edit-task-button"  className="edit-task-button" onClick={() => editTask(index, setEditTaskClicked, setTaskIndex, setIsCreateTaskOpen, task, setTaskTitle)}/>
+                    <img src={closeIcon} alt="erase-task-button" className="erase-task-button" onClick={() => removeTask(index, tasksArray, setTasksArray, task)}/>
                 </div>
             </div>
         ))

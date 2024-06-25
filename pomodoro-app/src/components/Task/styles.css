@@ -22,7 +22,7 @@
 .task-options-wrapper{
     display: flex;
     justify-content: right;
+    padding-bottom: 10px;
     width: 90%;
     gap: 5px;
-    padding-bottom: 10px;
 }

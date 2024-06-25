@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { formatInput } from '../utils/formatInput';
 
-export const usePomodoroStateEffect = (pomodoroState, setCounter, setIsCounterActive, settingsDidModified, isSettingsOpen) => {
+export const usePomodoroStateEffect = (pomodoroState, setCounter, setIsCounterActive, settingsDidModified, setSettingsDidModified) => {
     useEffect(() => {
         setIsCounterActive(false);
         const body = document.querySelector('body');
@@ -30,5 +30,8 @@ export const usePomodoroStateEffect = (pomodoroState, setCounter, setIsCounterAc
         body.style.background = bodyColor;
         buttons.forEach(el => el.style.background = buttonColor);
         counterDiv.style.background = counterDivColor;
-    }, [pomodoroState, setCounter, setIsCounterActive, settingsDidModified, isSettingsOpen]);
+
+        setSettingsDidModified(false);
+
+    }, [pomodoroState, setCounter, setIsCounterActive, settingsDidModified, setSettingsDidModified]);
 };

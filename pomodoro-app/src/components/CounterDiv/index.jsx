@@ -12,21 +12,21 @@ import { useKeyPressEffect } from './hooks/useKeyPressEffect';
 import { usePomodoroStateEffect } from './hooks/usePomodoroStateEffect';
 
 
+
 export const CounterDiv = () => {
     const { counter, setCounter, isCounterActive, setIsCounterActive, pomodoroState, setPomodoroState } = useContext(CounterContext);
     const buttonText = isCounterActive ? 'Pause' : 'Start';
 
-    const { settingsDidModified } = useContext(SettingsContext);
-    const { isSettingsOpen } = useContext(ModalContext);
-    
+    const { settingsDidModified, setSettingsDidModified } = useContext(SettingsContext);
+    const { isCreateTaskOpen } = useContext(ModalContext);
 
     const handleStartCounter = useCallback(() => {
         setIsCounterActive(!isCounterActive);
     }, [ setIsCounterActive ,isCounterActive]);
 
     useCounterEffect(isCounterActive, counter, setCounter, setIsCounterActive);
-    useKeyPressEffect(handleStartCounter, ' ');
-    usePomodoroStateEffect(pomodoroState, setCounter, setIsCounterActive, settingsDidModified, isSettingsOpen);
+    useKeyPressEffect(handleStartCounter, isCreateTaskOpen);
+    usePomodoroStateEffect(pomodoroState, setCounter, setIsCounterActive, settingsDidModified, setSettingsDidModified);
 
     return (
         <div className="wrapper">

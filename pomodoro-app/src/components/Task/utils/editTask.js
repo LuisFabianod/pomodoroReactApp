@@ -1,5 +1,6 @@
-export const editTask = (index, setEditTask, setTaskIndex, setIsCreateTaskOpen) => {
+export const editTask = (index, setEditTaskClicked, setTaskIndex, setIsCreateTaskOpen, taskTitle, setTaskTitle) => {
     setIsCreateTaskOpen(true);
     setTaskIndex(index);
-    setEditTask(true);
+    setTaskTitle(taskTitle);
+    setEditTaskClicked(true);
 }

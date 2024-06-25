@@ -1,8 +1,9 @@
 import React, { act } from 'react';
-import { fireEvent, getByAltText, render, screen } from '@testing-library/react';
-import { Task } from '..';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { TasksContext } from '../../../Context/TasksContext';
 import { ModalContext } from '../../../Context/ModalContext';
+import { Task } from '..';
+
 
 import { editTask } from '../utils/editTask';
 import { removeTask } from '../utils/removeTask';

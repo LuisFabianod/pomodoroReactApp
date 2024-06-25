@@ -1,8 +1,9 @@
 import React, { act } from 'react';
-import { fireEvent, getByAltText, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { CreateTaskModal } from '..';
 import { TasksContext } from '../../../Context/TasksContext';
 import { ModalContext } from '../../../Context/ModalContext';
+
 import { createOrEditTask } from '../utils/createOrEditTask';
 
 const mockModalContext = {

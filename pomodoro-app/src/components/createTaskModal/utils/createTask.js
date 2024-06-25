@@ -1,9 +1,13 @@
-export const createTask = (event, tasksArray, setTasksArray, setIsCreateTaskOpen) => {
-
+export const createTask = (event, tasksArray, setTasksArray, setIsCreateTaskOpen, setTaskTitle) => {
     event.preventDefault();
     const taskInput = document.querySelector('#create-task-input');
-    const taskTitle = taskInput.value;
-    if(taskTitle === '') return;
-    setTasksArray([...tasksArray, taskTitle ]);
+    const taskInputValue = taskInput.value;
+    if (taskInputValue === '') return;
+    setTaskTitle(taskInputValue);
+    setTasksArray([...tasksArray, taskInputValue]);
+    
+    localStorage.setItem(`Task${taskInputValue}`, taskInputValue);
+
     setIsCreateTaskOpen(false);
+    console.log(localStorage)
 };

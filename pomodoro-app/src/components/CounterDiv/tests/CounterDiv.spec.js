@@ -17,6 +17,7 @@ const mockCounterContext = {
 
 const mockSettingsContext = {
     settingsDidModified: false,
+    setSettingsDidModified: jest.fn()
 };
 
 const mockModalContext = {
@@ -26,11 +27,11 @@ const mockModalContext = {
 const renderComponent = () => {
 
     const { isSettingsOpen } = mockModalContext;
-    const { settingsDidModified } = mockSettingsContext;
+    const { settingsDidModified, setSettingsDidModified  } = mockSettingsContext;
     const { counter, setCounter, isCounterActive, setIsCounterActive, pomodoroState, setPomodoroState } = mockCounterContext;
     
     render(
-        <SettingsContext.Provider value={{ settingsDidModified }}>
+        <SettingsContext.Provider value={{ settingsDidModified, setSettingsDidModified }}>
             <ModalContext.Provider value={{ isSettingsOpen }}>
                 <CounterContext.Provider value={{ counter, setCounter, isCounterActive, setIsCounterActive, pomodoroState, setPomodoroState }}>
                     <Input labelText={'Pomodoro duration: '} classNameMinutes={'pomodoro-minutes'} classNameSeconds={'pomodoro-seconds'} />
@@ -45,9 +46,8 @@ const renderComponent = () => {
 
 describe('<CounterDiv />', () => {
 
-    const { isSettingsOpen } = mockModalContext;
-    const { settingsDidModified } = mockSettingsContext;
-    const { counter, setCounter, isCounterActive, setIsCounterActive, pomodoroState, setPomodoroState } = mockCounterContext;
+    
+    const {  setIsCounterActive, setPomodoroState } = mockCounterContext;
 
     it('should render CounterDiv component with buttons', () => {
         renderComponent();

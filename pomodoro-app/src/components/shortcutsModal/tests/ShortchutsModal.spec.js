@@ -2,7 +2,7 @@ import React, { act } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { ModalContext } from '../../../Context/ModalContext';
 import { Header } from '../../Header';
-import { ShortcutsModal } from '../../ShortcutsModal'
+import { ShortcutsModal } from '../../shortcutsModal'
 
 const mockModalContext = {
     setIsShortcutsOpen: jest.fn(),

@@ -1,11 +1,16 @@
-export const editTask = (event, setEditTaskClicked, tasksArray ,setTasksArray, setIsCreateTaskOpen, taskIndex) => {
-
+export const editTask = (event, setEditTaskClicked, tasksArray ,setTasksArray, setIsCreateTaskOpen, taskIndex, taskTitle, setTaskTitle) => {
+    
     event.preventDefault();
     const taskInput = document.querySelector('#create-task-input');
-    const taskTitle = taskInput.value;
-    if(taskTitle === '') return;
-    const newTasksArray = [ ...tasksArray.slice(0, taskIndex), taskTitle, ...tasksArray.slice(taskIndex + 1) ];
+    const taskInputValue = taskInput.value;
+    if(taskInputValue === '') return;
+    setTaskTitle(taskInputValue)
+    const newTasksArray = [ ...tasksArray.slice(0, taskIndex), taskInputValue, ...tasksArray.slice(taskIndex + 1) ];
     setTasksArray(newTasksArray);
     setIsCreateTaskOpen(false);
+
+    localStorage.removeItem(`Task${taskTitle}`);
+    localStorage.setItem(`Task${taskInputValue}`, taskInputValue)
+
     setEditTaskClicked(false);
 };
