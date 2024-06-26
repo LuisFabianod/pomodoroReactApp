@@ -19,3 +19,18 @@
 </div>
 
 - You can see the project online at [pomodoro-app](https://pomodoro-react-app.vercel.app)
+
+# Running the application locally
+- Follow the steps below to run the application locally using Docker:
+    1. Clone the repository:
+        - `git clone https://github.com/LuisFabianod/pomodoroReactApp.git`
+    2. Build the Docker image:
+        - `docker build -t pomodoro-app .`
+    3. Run the application container:
+        - `docker run --name pomodoro-container pomodoro-app`
+    4. Copy the built files to the host:
+        - `docker cp pomodoro-container:/var/www/html ./build`
+    5. Run the Nginx container to serve the application::
+        - `docker run -d -p 8080:80 --name nginx-container -v $(pwd)/build:/usr/share/nginx/html:ro -v $(pwd)/nginx.conf:/etc/nginx/conf.d/default.conf:ro nginx:alpine`
+    6. Access the application:
+        - Open your browser and go to http://localhost:8080.
