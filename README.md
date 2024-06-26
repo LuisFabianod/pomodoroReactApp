@@ -24,6 +24,17 @@
 - Follow the steps below to run the application locally using Docker:
     1. Clone the repository:
         - `git clone https://github.com/LuisFabianod/pomodoroReactApp.git`
+    2. Make sure that you are in the application directory:
+        - `cd pomodoro-app`
+    3. Run development script:
+        - `npm start`
+    4. Run tests script:
+        - `npm test`
+
+# Running the application locally with Docker
+- Follow the steps below to run the application locally using Docker:
+    1. Clone the repository:
+        - `git clone https://github.com/LuisFabianod/pomodoroReactApp.git`
     2. Build the Docker image:
         - `docker build -t pomodoro-app .`
     3. Run the application container:
