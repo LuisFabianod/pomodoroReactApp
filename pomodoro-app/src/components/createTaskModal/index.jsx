@@ -8,6 +8,7 @@ import closeMenuIcon from '../../icons/x-mark.png'
 import { useAddClassEffect } from './hooks/useAddClassEffect';
 import { useKeyPressEffect } from './hooks/useKeyPressEffect';
 import { createOrEditTask } from './utils/createOrEditTask';
+import { useInputFocusEffect } from './hooks/useInputFocusEffect';
 
 export const CreateTaskModal = () => {
 
@@ -15,6 +16,7 @@ export const CreateTaskModal = () => {
     const { isCreateTaskOpen, setIsCreateTaskOpen } = useContext(ModalContext);
 
     useAddClassEffect(isCreateTaskOpen);
+    useInputFocusEffect(isCreateTaskOpen);
     useKeyPressEffect(setIsCreateTaskOpen, 'n', true);
     
     return(

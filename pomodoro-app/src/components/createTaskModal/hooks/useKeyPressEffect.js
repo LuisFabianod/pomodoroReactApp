@@ -4,7 +4,10 @@ export const useKeyPressEffect = (setIsCreateTaskOpen, key, state) => {
     useEffect(() => {
         const handleKeyPress = (event) => {
             if (event.key === key) {
-                setIsCreateTaskOpen(state);
+                setTimeout(() => {
+                    setIsCreateTaskOpen(state);
+                }, 100)
+                
             }
         };
         document.addEventListener('keypress', handleKeyPress);

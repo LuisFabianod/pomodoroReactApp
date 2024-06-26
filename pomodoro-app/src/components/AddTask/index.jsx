@@ -12,9 +12,11 @@ export const AddTask = () => {
 
     const { setIsCreateTaskOpen } = useContext(ModalContext);
 
+    if(isCounterActive) return;
+
     return(
         <div className="add-task-wrapper">
-            <Button id={'add-task-button'} handleFunction={() => openCreateTaskModal(isCounterActive, setIsCreateTaskOpen)}>+ Add task</Button>
+            <Button id={'add-task-button'} handleFunction={() => openCreateTaskModal(isCounterActive, setIsCreateTaskOpen)} >+ Add task</Button>
         </div>
     )
 };
