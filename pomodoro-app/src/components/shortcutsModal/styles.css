@@ -1,4 +1,4 @@
-dialog{
+.dialog{
   margin: auto;
   border: 1px solid rgba(0, 0, 0, 0.575);
   border-radius: 10px;
@@ -6,7 +6,7 @@ dialog{
   pointer-events: auto;
 }
 
-dialog > header{
+.dialog > header{
   display: flex;
   justify-content: space-around;
 }
